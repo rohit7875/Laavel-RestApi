@@ -4,7 +4,6 @@
 namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller as Controller;
 use Log;
-use Carbon\Carbon;
 
 class BaseController extends Controller
 {
