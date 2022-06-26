@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController as BaseController;
 use Illuminate\Support\Facades\Validator;
 use Exception;
+
 class UserDetailController extends BaseController
 {
     /**
@@ -14,9 +15,21 @@ class UserDetailController extends BaseController
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        try {
+            $name=$request->name;
+            $query = new User_detail();
+            if (isset($request->phone_number)) {
+                $query = $query->where('phone_number', 'like', "%$request->phone_number%");
+            }
+            $users_detail = $query->with('users')->latest()->paginate(5);
+            return $this->sendResponse($users_detail->toArray(), 'User Details Retrieve Successfully');
+        } catch (\Exception $e) {
+            $this->logExpection("getAllUserDetails", $e->getMessage());
+
+            return $this->sendError($this->error_msg);
+        }
     }
 
     /**
@@ -37,7 +50,29 @@ class UserDetailController extends BaseController
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $validator = Validator::make($request->all(), [
+                'phone_number' => 'required|digits:10|unique:user_details,phone_number',
+                'address' => 'required',
+                'user_id' => 'required|exists:users,id',
+            ]);
+
+            if ($validator->fails()) {
+                return $this->sendError('Validation Error', $validator->errors());
+            }
+
+            User_detail::create([
+                'phone_number' => $request->phone_number ? $request->phone_number : NULL,
+                'address' => $request->address ? $request->address : NULL,
+                'user_id' => $request->user_id
+            ]);
+
+            return $this->sendResponseWithNoData('User Details Create Successfully');
+        } catch (Exception $e) {
+            $this->logExpection("Create User Details", $e->getMessage());
+
+            return $this->sendError($e->getMessage());
+        }
     }
 
     /**
@@ -46,11 +81,25 @@ class UserDetailController extends BaseController
      * @param  \App\User_detail  $user_detail
      * @return \Illuminate\Http\Response
      */
-    public function show(User_detail $user_detail)
+    public function show($id)
     {
-        //
-    }
 
+        try {
+
+
+            $user = User_detail::where('id', $id)->with('users')->first();
+
+            if ($user) {
+                return $this->sendResponse($user, 'User details retrieved Successfully');
+            } else {
+                return $this->sendResponseWithNoData('User details Not Found');
+            }
+        } catch (Exception $e) {
+            $this->logExpection("view User Details", $e->getMessage());
+
+            return $this->sendError($e->getMessage());
+        }
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -71,7 +120,23 @@ class UserDetailController extends BaseController
      */
     public function update(Request $request, User_detail $user_detail)
     {
-        //
+        try {
+            $validator = Validator::make($request->all(), [
+                'phone_number' => 'required|digits:10',
+                'address' => 'required',
+                'user_id' => 'required|exists:users,id',
+            ]);
+
+            if ($validator->fails()) {
+                return $this->sendError('Validation Error', $validator->errors());
+            }
+            $user_detail::where('id', $request->id)->update($request->all());
+            return $this->sendResponseWithNoData('User Details Update Successfully');
+        } catch (Exception $e) {
+            $this->logExpection("User  Details Update", $e->getMessage());
+
+            return $this->sendError($this->error_msg);
+        }
     }
 
     /**
@@ -80,8 +145,18 @@ class UserDetailController extends BaseController
      * @param  \App\User_detail  $user_detail
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User_detail $user_detail)
+
+
+    public function destroy(User_detail $user_detail, $id)
     {
-        //
+        try {
+
+            $user_detail::where('id', $id)->delete();
+            return $this->sendResponseWithNoData('User Details Deleted Successfully');
+        } catch (Exception $e) {
+            $this->logExpection("User Details Deleted", $e->getMessage());
+
+            return $this->sendError($this->error_msg);
+        }
     }
 }

@@ -41,3 +41,11 @@ Route::get('get_user_details/{id}','Api\userController@show')->name('get_user_de
 /// User Model End  /////////
 
 
+/// User Details Model Start  /////////
+Route::post('user_details_list','Api\UserDetailController@index')->name('user_details_list');
+Route::post('user_details_store','Api\UserDetailController@store')->name('user_details_store');
+Route::put('user_details_update','Api\UserDetailController@update')->name('user_details_update');
+Route::delete('user_details_delete/{id}','Api\UserDetailController@destroy')->name('user_details_delete');
+Route::get('get_user_data/{id}','Api\UserDetailController@show')->name('get_user_data');
+/// User  Details Model End  /////////
+
