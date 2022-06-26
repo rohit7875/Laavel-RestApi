@@ -1,0 +1,587 @@
+{
+	"info": {
+		"_postman_id": "f44eb74e-257c-458c-a3cc-00cce50e9b42",
+		"name": "Laravel Rest Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2692808"
+	},
+	"item": [
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "Company list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "demo",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/company_list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"company_list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Company Store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "name1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/company_store",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"company_store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Comapny",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/company_update?id=1&name=company",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"company_update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "name",
+									"value": "company"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Company Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/company_delete/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"company_delete",
+								"1"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "name1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Company Detailes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/get_company_details/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"get_company_details",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Deparment",
+			"item": [
+				{
+					"name": "deparment list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "demo",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/department_list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"department_list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deparment Store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "HR",
+									"type": "text"
+								},
+								{
+									"key": "company_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/department_store",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"department_store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update deparment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/department_update?id=1&name=HR&company_id=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"department_update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "name",
+									"value": "HR"
+								},
+								{
+									"key": "company_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deparment Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/department_delete/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"department_delete",
+								"1"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "name1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get  Deparment Detailes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/get_department_details/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"get_department_details",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "user list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "rohit",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/user_list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user_list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user Store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Rohit Patil",
+									"type": "text"
+								},
+								{
+									"key": "dept_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/user_store",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user_store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/user_update?id=1&name=HR&dept_id=2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user_update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "name",
+									"value": "HR"
+								},
+								{
+									"key": "dept_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/user_delete/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user_delete",
+								"1"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "name1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get  User Detailes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/get_user_details/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"get_user_details",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Details",
+			"item": [
+				{
+					"name": "user deatils list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "rohit",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "phone_number",
+									"value": "7875809181",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/user_details_list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user_details_list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user deatils Store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "phone_number",
+									"value": "Rohit Patil",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Malage",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/user_details_store",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user_details_store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user deatils",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/user_details_update?id=1&phone_number=7875809182&user_id=2&address=pune",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user_details_update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "phone_number",
+									"value": "7875809182"
+								},
+								{
+									"key": "user_id",
+									"value": "2"
+								},
+								{
+									"key": "address",
+									"value": "pune"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user deatils Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/user_details_delete/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user_details_delete",
+								"1"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "name1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get  User Detailes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/get_user_data/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"get_user_data",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
