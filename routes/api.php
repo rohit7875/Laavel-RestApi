@@ -31,3 +31,13 @@ Route::get('get_department_details/{id}','Api\DepartmentController@show')->name(
 /// Department Model End  /////////
 
 
+
+/// User Model Start  /////////
+Route::post('user_list','Api\userController@index')->name('user_list');
+Route::post('user_store','Api\userController@store')->name('user_store');
+Route::put('user_update','Api\userController@update')->name('user_update');
+Route::delete('user_delete/{id}','Api\userController@destroy')->name('user_delete');
+Route::get('get_user_details/{id}','Api\userController@show')->name('get_user_details');
+/// User Model End  /////////
+
+

@@ -7,6 +7,14 @@ use Log;
 
 class BaseController extends Controller
 {
+
+
+    public $error_msg;
+
+    public function __construct()
+    {
+        $this->error_msg = 'something went wrong';
+    }
     /**
      * success response method.
      *
