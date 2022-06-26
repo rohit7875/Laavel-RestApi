@@ -42,4 +42,9 @@ class User extends Authenticatable
         return $this->belongsTo(Department::class, 'dept_id', 'id');
 
     }
+
+    public function user_detail()
+    {
+        return $this->hasMany(User_detail::class);
+    }
 }
