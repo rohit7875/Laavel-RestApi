@@ -85,7 +85,7 @@ class CompanyController extends BaseController
             $company = Company::where('id', $id)->first();
             if($company)
             {
-                return $this->sendResponses($company,'Company details retrieved Successfully');
+                return $this->sendResponse($company,'Company details retrieved Successfully');
             }
             else
             {
